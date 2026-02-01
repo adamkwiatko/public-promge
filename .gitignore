@@ -1,0 +1,7 @@
+.env
+.idea
+app/data
+.DS_Store
+test.py
+__pycache__/
+*.pyc

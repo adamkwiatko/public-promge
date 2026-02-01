@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+pandas = "*"
+sqlalchemy = "*"
+pyarrow = "*"
+urllib3 = "*"
+scikit-learn = "*"
+fastapi = "*"
+pydantic = "*"
+pydantic-settings = "*"
+jinja2 = "*"
+python-multipart = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+joblib = "*"
+openpyxl = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.14"
+python_full_version = "3.14.0"
