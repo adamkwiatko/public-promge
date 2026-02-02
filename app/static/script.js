@@ -22,8 +22,8 @@ formMeteo.addEventListener("submit", async (e) =>{
             return;
         }
 
-        const data = await response.json();
-        outputMain.textContent = JSON.stringify(data, null, 2);
+        const data = await response.text();
+        outputMain.innerHTML = data;
     } catch (error) {
         outputMain.textContent = "Błąd połączenia: " + error;
     }
@@ -50,8 +50,8 @@ formPse.addEventListener("submit", async (e) => {
             return;
         }
 
-        const data = await response.json();
-        outputMain.textContent = JSON.stringify(data, null, 2);
+        const data = await response.text();
+        outputMain.innerHTML = data;
     } catch (error) {
         outputMain.textContent = "Błąd połączenia: " + error;
     }
@@ -78,8 +78,8 @@ formForecast.addEventListener("submit", async (e) =>{
             return;
         }
 
-        const data = await response.json();
-        outputMain.textContent = JSON.stringify(data, null, 2);
+        const data = await response.text();
+        outputMain.innerHTML = data;
     } catch (error) {
         outputMain.textContent = "Błąd połączenia: " + error;
     }
@@ -107,8 +107,8 @@ formUpload.addEventListener("submit", async (e) => {
                 return;
             }
 
-            const data = await response.json();
-            outputMain.textContent = JSON.stringify(data, null, 2);
+            const data = await response.text();
+            outputMain.innerHTML = data;
         } catch (error) {
             outputMain.textContent = "Błąd połączenia: " + error;
         }
