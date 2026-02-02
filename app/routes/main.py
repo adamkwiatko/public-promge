@@ -1,10 +1,7 @@
 from fastapi import APIRouter, Request, HTTPException, UploadFile, File
 from fastapi.templating import Jinja2Templates
 from datetime import date
-
-from sklearn.ensemble import RandomForestRegressor
 from starlette.responses import HTMLResponse
-
 from app.services.meteo_service import MeteoService
 from app.services.pse_service import GenerationService
 from app.services.forecast_service import train_model, predict_future
@@ -71,7 +68,7 @@ def fetch_generation(start_date: date, end_date: date):
 
 
 @router.get("/create_forecast", response_class=HTMLResponse)
-def create_forecast(request: Request, model_name: str = RandomForestRegressor, steps: int = 24, n_lags: int = 24):
+def create_forecast(request: Request, model_name: str = 'RandomForestRegressor', steps: int = 24, n_lags: int = 24):
 
     try:
         generation_df = GenerationService().load_from_db().set_index_in_df().prepare_to_forecast().dataframe
