@@ -1,5 +1,4 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-# from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
@@ -100,18 +99,6 @@ def predict_future(
     df = history_df.copy()
     preds = []
 
-    # transformer = pipeline.named_steps["features"]
-    # sample_features = transformer.transform(df.tail(steps + 24))
-    # feature_names = sample_features.columns
-    #
-    # model = pipeline.named_steps["model"]
-    # importances = model.feature_importances_
-    #
-    # feature_importance_df = pd.DataFrame({
-    #     "feature": feature_names,
-    #     "importances": importances
-    # }).sort_values(by="importances", ascending=False)
-
     for i in range(steps):
         row = future_weather.iloc[i:i+1].copy()
         row[pv_output] = df[pv_output].iloc[-1]  # placeholder
@@ -135,8 +122,3 @@ def predict_future(
     future_index = future_weather.index[:steps]
 
     return pd.DataFrame({"plan_dtime": future_index, "pv_output": preds})
-
-    # return {
-    #     "predictions": preds_series,
-    #     "feature_importance": feature_importance_df
-    # }
